@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Join = () => {
+        const backServer = process.env.REACT_APP_BACK_SERVER;
     const [memberId, setMemberId] = useState("");
     const [memberPw, setMemberPw] = useState("");
     const [memberName, setMemberName] = useState("");
@@ -24,7 +25,7 @@ const Join = () => {
       if(idReg.test(memberId)){
         //정규표현식 만족했을때 -> 중복체크        
         axios
-        .get("http://192.168.10.17:8888/member/id/"+memberId)        
+        .get(backServer + "/member/id/"+memberId)        
         .then((res) =>{
           if(res.data.message === "dupulication"){
             setCheckIdMsg("이미 사용중인 아이디입니다.");
@@ -51,7 +52,7 @@ const Join = () => {
       if(memberId !== "" && memberPw !== "" && memberName !== "" && memberPhone !== "" && checkIdMsg === "" && checkPwMsg === "" ){
         const obj = {memberId,memberPw,memberName,memberPhone};
         axios
-        .post("http://192.168.10.17:8888/member/join", obj)
+        .post(backServer + "/member/join", obj)
         .then((res)=>{
             if(res.data.message === "success"){
               navigate("/login")

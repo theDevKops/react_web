@@ -55,3 +55,35 @@
   padding: 15px 0;  
   font-size: 20px;
 }
+
+
+.login-wrap{
+  width: 500px;
+  margin: 50px auto;
+  border: 1px solid #807097;
+  padding: 30px;
+  border-radius: 5px;
+}
+.login-title{
+  text-align: center;
+}
+.login-input-wrap{
+  padding: 10px;
+}
+.login-btn{ 
+  width: 100%;
+  margin: 10px auto;  
+}
+.login-search-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+.login-search-box > span{
+  transform: rotate(90deg);
+}
+.login-search-box > a:hover{
+  text-decoration: underline;
+}

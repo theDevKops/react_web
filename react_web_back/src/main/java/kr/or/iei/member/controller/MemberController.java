@@ -29,7 +29,7 @@ public class MemberController {
 	
 	@Operation(summary = "아이디중복체크", description = "매개변수로 전달한 아이디 사용여부 조회")
 	@ApiResponses({
-		@ApiResponse(responseCode = "200", description = "message 갑 확인"),
+		@ApiResponse(responseCode = "200", description = "message 값 확인"),
 		@ApiResponse(responseCode = "500", description = "서버 에러 발생")
 	})
 	@GetMapping(value="{memberId}")
@@ -43,6 +43,11 @@ public class MemberController {
 			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 		}		
 	}
+	@Operation(summary = "회원가입", description = "매개변수로 전달하여 db 입력")
+	@ApiResponses({
+		@ApiResponse(responseCode = "200", description = "message 값 확인"),
+		@ApiResponse(responseCode = "500", description = "서버 에러 발생")
+	})
 	@PostMapping(value="/join")
 	public ResponseEntity<ResponseDTO> join(@RequestBody Member member){
 		int result = memberService.insertMember(member);
@@ -54,4 +59,15 @@ public class MemberController {
 			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 		}	
 	}	
+	@PostMapping(value="/login")
+	public ResponseEntity<ResponseDTO> login(@RequestBody Member member){
+		Member m = memberService.login(member);
+		if(m != null) {
+			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "success", null);
+			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
+		}else {
+			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "fail", null);
+			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
+		}
+	}
 }
