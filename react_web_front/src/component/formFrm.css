@@ -1,9 +1,11 @@
 /*
 메인색상
-#5356FF rgb(83, 86, 255)
-#378CE7 rgb(55, 140, 231)
-#67C6E3 rgb(103, 198, 227)
-#DFF5FF rgb(223, 245, 255)
+#C4D1C5 연한초록
+#647979 진한초록
+#807097 진한보라
+#C99DCA 연보라
+#F6C7BA 복숭아
+#F8E0DC 연한살구
 */
 .input-form {
   display: block;
@@ -11,26 +13,27 @@
   padding: 0.7rem;
   background-color: #fff;
   outline: none;
-  border: 2px solid #ccc;
+  border: none;
+  border-bottom: 2px solid #807097 ;
   box-sizing: border-box;
-  border-radius: 3px;
 }
 .btn {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.9rem;
   cursor: pointer;
   border-radius: 5px;
   font-family: ns-eb;
   border: none;
   outline: none;
   color: #fff;
+  font-size: 20px;
 }
 .st1 {
-  background-color: #5356ff;
+  background-color: #807097;
 }
 .st2 {
-  background-color: #378ce7;
+  background-color: #F8E0DC;
 }
 .st3 {
-  background-color: #67c6e3;
+  background-color: #647979 ;
 }

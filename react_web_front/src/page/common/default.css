@@ -1,9 +1,11 @@
 /*
 메인색상
-#5356FF rgb(83, 86, 255)
-#378CE7 rgb(55, 140, 231)
-#67C6E3 rgb(103, 198, 227)
-#DFF5FF rgb(223, 245, 255)
+#C4D1C5 연한초록
+#647979 진한초록
+#807097 진한보라
+#C99DCA 연보라
+#F6C7BA 복숭아
+#F8E0DC 연한살구
 */
 
 @font-face {
@@ -36,9 +38,10 @@
 }
 
 header {
-  border-bottom: 1px solid #5356ff;
+  border-bottom: 2px solid #ccc;
   padding: 10px 0px;
   min-width: 1200px;
+  
 }
 .header {
   width: 1200px;
@@ -50,7 +53,7 @@ header {
 .main-logo > a {
   font-size: 32px;
   font-family: ns-black;
-  color: #5356ff;
+  color: #C99DCA ;
 }
 .nav > ul {
   list-style-type: none;
@@ -63,7 +66,7 @@ header {
   padding: 5px 0px;
 }
 .nav > ul > li > a {
-  color: #5356ff;
+  color: #C99DCA ;
   font-family: ns-b;
 }
 
@@ -77,12 +80,12 @@ header {
 }
 .header-link > a > span {
   font-size: 32px;
-  color: #5356ff;
+  color: #C99DCA ;
 }
 
 .footer {
   padding: 50px;
-  background-color: #dff5ff;
+  background-color: #C99DCA;
 }
 .footer-content {
   width: 1200px;
@@ -108,4 +111,12 @@ header {
   flex: 1;
   width: 1200px;
   margin: 30px auto;
+}
+.check-msg{
+  justify-content: flex-end;
+}
+.check-msg> div{
+  width: 70%;
+  font-size: 13px;
+  color:#f44336;
 }

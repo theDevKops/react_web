@@ -1,14 +1,57 @@
 /*
 메인색상
-#5356FF rgb(83, 86, 255)
-#378CE7 rgb(55, 140, 231)
-#67C6E3 rgb(103, 198, 227)
-#DFF5FF rgb(223, 245, 255)
+#C4D1C5 연한초록
+#647979 진한초록
+#807097 진한보라
+#C99DCA 연보라
+#F6C7BA 복숭아
+#F8E0DC 연한살구
 */
 .page-title {
   text-align: center;
-  color: #378ce7;
+  color: #807097  ;
   font-family: ns-black;
   font-size: 26px;
   padding: 30px;
+  margin-bottom: 20px;
+}
+
+.join-wrap{
+  width:500px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #807097;
+  border-radius: 5px;
+}
+
+.join-input-wrap{  
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.join-input-wrap > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.join-input-wrap>div>.label{
+  width: 30%;
+}
+.join-input-wrap > div > .label >label {
+  font-size: 18px;
+  font-family: ns-b;
+  color: #807097 ;
+}
+.join-input-wrap>div>.input{
+  width:70%;
+}
+.check-msg {
+  font-size: 13px;
+  width: 70%;
+  color: rgb(245, 49, 49);
+  align-self: flex-end;
+}
+.join-btn-box{
+  padding: 15px 0;  
+  font-size: 20px;
 }
