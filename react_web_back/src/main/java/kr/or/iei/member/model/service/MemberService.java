@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.iei.member.model.dao.MemberDao;
 import kr.or.iei.member.model.dto.Member;
+import kr.or.iei.util.JwtUtil;
 
 @Service
 public class MemberService {
@@ -14,6 +15,8 @@ public class MemberService {
 	private MemberDao memberDao;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+	private JwtUtil jwtUtil;
 
 	public Member selectOneMember(String memberId) {
 		// TODO Auto-generated method stub
@@ -24,10 +27,12 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		return memberDao.insertMember(member);
 	}
-	public Member login(Member member) {
+	public String login(Member member) {
 		Member m = memberDao.selectOneMember(member.getMemberId());
 		if(m != null && bCryptPasswordEncoder.matches(member.getMemberPw(), m.getMemberPw())) {
-			return m;
+			long expiredDateMs = 60*60*1000l;
+			String accessToken = jwtUtil.createToken(member.getMemberId(), expiredDateMs);
+			return accessToken;
 		}else {
 			return null;
 		}		

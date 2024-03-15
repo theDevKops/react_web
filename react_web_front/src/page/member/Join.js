@@ -69,14 +69,14 @@ const Join = () => {
     }
     return(
       <div className="join-wrap">
-          <div className="page-title">회원가입</div>
+          <div className="page-title">JOIN</div>
             <JoinInputWrap label="아이디" content="memberId" type="text" data={memberId} setData={setMemberId} checkMsg={checkIdMsg} blurEvent={idChk} />
             <JoinInputWrap label="비밀번호" content="memberPw" type="password" data={memberPw} setData={setMemberPw} />
             <JoinInputWrap label="비밀번호확인" content="memberPwRe" type="password" data={memberPwRe} setData={setMemberPwRe} checkMsg={checkPwMsg} blurEvent={pwCheck} />
             <JoinInputWrap label="이름" content="memberName" type="text" data={memberName} setData={setMemberName} />
             <JoinInputWrap label="전화번호" content="memberPhone" type="text" data={memberPhone} setData={setMemberPhone} />   
         <div className="join-btn-box">
-          <Button2 text="JOIN" clickEvent={join}></Button2>      
+          <Button2 text="회원가입" clickEvent={join}></Button2>      
         </div>
       </div>
     )

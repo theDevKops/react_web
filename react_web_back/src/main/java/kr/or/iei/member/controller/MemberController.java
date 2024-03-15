@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,16 +59,28 @@ public class MemberController {
 			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "fail", null);
 			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 		}	
-	}	
+	}
+	@Operation(summary = "로그인", description = "매개변수로 전달하여 db 일치 확인")
+	@ApiResponses({
+		@ApiResponse(responseCode = "200", description = "message 값 확인"),
+		@ApiResponse(responseCode = "500", description = "서버 에러 발생")
+	})
 	@PostMapping(value="/login")
 	public ResponseEntity<ResponseDTO> login(@RequestBody Member member){
-		Member m = memberService.login(member);
-		if(m != null) {
-			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "success", null);
+		String accessToken = memberService.login(member);
+		if(accessToken != null) {
+			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "success", accessToken);
 			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 		}else {
 			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "fail", null);
 			return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<ResponseDTO> getMember(@RequestAttribute String memberId){
+		Member member = memberService.selectOneMember(memberId);
+		ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "success", member);
+		return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 	}
 }
