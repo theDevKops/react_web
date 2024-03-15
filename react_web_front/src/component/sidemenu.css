@@ -1,0 +1,36 @@
+/*
+메인색상
+#C4D1C5 연한초록
+#647979 진한초록
+#807097 진한보라
+#C99DCA 연보라
+#F6C7BA 복숭아
+#F8E0DC 연한살구
+*/
+.side-menu{
+    width: 200px;
+}
+.side-menu > ul{
+    list-style-type: none;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.side-menu >ul > li > a {
+    display: block;
+    padding: 10px;
+    color: #647979;
+    font-family: ns-b;
+    position: relative;
+}
+.side-menu > ul > li > a > span{
+    color: #647979;
+    position: absolute;
+    right: 0;
+}
+.side-menu >ul >li> a.active-side {
+    background-color: #647979;
+    color: #fff;
+}
+.side-menu>ul>li>a.active-side> span{
+    color: #fff;
+}

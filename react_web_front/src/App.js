@@ -7,6 +7,7 @@ import Login from "./page/member/Login";
 import { useEffect, useState } from "react";
 import MemberInfo from "./page/member/MemberInfo";
 import axios from "axios";
+import MemberMain from "./page/member/MemberMain";
 
 function App() {
   //스토리지에 저장된 데이터를 꺼내서 객체형식으로 변환
@@ -62,9 +63,7 @@ useEffect(()=>{
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/login" element={<Login login={login}/>}/>
-          <Route 
-            path="/member/info" 
-            element={<MemberInfo isLogin={isLogin}/>}  />
+          <Route path="/member/*" element={<MemberMain isLogin={isLogin}/>}  />
         </Routes>
       </div>
       <Footer />
