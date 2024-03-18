@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button1, Button2, Input} from "../../component/FormFrm";
+import { Button2, Input} from "../../component/FormFrm";
 import axios from "axios";
 import Swal from "sweetalert2";
 

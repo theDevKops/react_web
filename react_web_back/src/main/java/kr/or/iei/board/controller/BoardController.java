@@ -3,6 +3,7 @@ package kr.or.iei.board.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class BoardController {
 	@GetMapping(value="/list/{reqPage}")
 	public ResponseEntity<ResponseDTO> boardList(@PathVariable int reqPage) {
 		Map map = boardService.selectBoardList(reqPage);
-		return null;
+		ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "success", map);
+		return new ResponseEntity<ResponseDTO>(response,response.getHttpStatus());
 	}
 }

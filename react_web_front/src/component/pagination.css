@@ -1,0 +1,26 @@
+.paging-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.paging-wrap>.page-item{
+    min-width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+.page-item.active-page{
+    background-color: #807097;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.board-frm-title{
+    font-size: 16px;
+    color: #807097;
+    font-family: ns-b;
+    padding: 20px 0px;
+}

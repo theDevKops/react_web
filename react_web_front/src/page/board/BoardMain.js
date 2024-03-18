@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./board.css";
 import BoardList from "./BoardList";
+import BoardWrite from "./BoardWrite";
 
 
 const BoardMain = (props) => {
@@ -10,6 +11,7 @@ const BoardMain = (props) => {
             <div className="board-title">게시판</div>
             <Routes>
                 <Route path="/list" element={<BoardList isLogin={isLogin} />} />
+                <Route path="/write" element={<BoardWrite isLogin={isLogin}/>} />
             </Routes>
         </div>
     )

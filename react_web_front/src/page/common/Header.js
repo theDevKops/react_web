@@ -45,7 +45,7 @@ const HeaderLink = (props) => {
     <div className="header-link">
       {isLogin?
       <>
-      <Link to="/member" title="마이페이지">
+      <Link to="/member/info" title="마이페이지">
         <span className="material-icons">face</span>
       </Link>
       <Link to="/" title="로그아웃">
