@@ -85,7 +85,8 @@ header {
 
 .footer {
   padding: 50px;
-  background-color: #C99DCA;
+  background-color: #f5f5f5;
+  
 }
 .footer-content {
   width: 1200px;
@@ -102,10 +103,10 @@ header {
   
 }
 .footer-content>ul>li>a{
-  color: #fff;
+  color: #1e1e1e;
 }
 .footer-content p {
-  color: #fff;
+  color: #1e1e1e;
 }
 
 .wrap {

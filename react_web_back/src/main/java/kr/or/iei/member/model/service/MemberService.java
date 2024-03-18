@@ -37,4 +37,27 @@ public class MemberService {
 			return null;
 		}		
 	}
+	@Transactional
+	public int updatePhone(Member member) {
+		// TODO Auto-generated method stub
+		return memberDao.updatePhone(member);
+	}
+	@Transactional
+	public int delete(String memberId) {
+		// TODO Auto-generated method stub
+		return memberDao.delete(memberId);
+	}
+	public int checkPw(Member member) {
+		Member m = memberDao.selectOneMember(member.getMemberId());
+		if(m != null && bCryptPasswordEncoder.matches(member.getMemberPw(), m.getMemberPw())) {
+			return 1;
+		}else {
+			return 0;
+		}		
+	}
+	@Transactional
+	public int changePwMember(Member member) {
+		// TODO Auto-generated method stub
+		return memberDao.changePwMember(member);
+	}
 }

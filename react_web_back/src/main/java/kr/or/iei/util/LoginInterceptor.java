@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		String auth = request.getHeader(HttpHeaders.AUTHORIZATION);
 		System.out.println("헤더에서 꺼낸 정보 :" + auth);//Bearer 토큰값
 		//1. 인증토큰이 없거난 또는 잘못된값을 보낸 경우
-		if(auth == null || auth.indexOf("null") != -1 || !auth.startsWith("bearer ")) {
+		if(auth == null || auth.indexOf("null") != -1 || !auth.startsWith("Bearer ")) {
 			System.out.println("인증이 없거나, 잘못된경우");
 			return false;//인증이 없거나 잘못된 경우이므로 이후 컨트롤러 실행X
 		}

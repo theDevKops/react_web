@@ -10,6 +10,11 @@ public interface MemberDao {
 	Member selectOneMember(String memberId);
 
 	int insertMember(Member member);
-	
+
+	int updatePhone(Member member);
+
+	int delete(String memberId);
+
+	int changePwMember(Member member);	
 
 }

@@ -105,3 +105,63 @@
 .mypage-current-content{
   width:900px;
 }
+.mypage-current-title{
+  padding: 30px 0px;
+  color: #647979;
+  font-family: ns-b;
+  font-size: 24px;
+}
+.member-info-tbl {
+  width: 100%;
+  border-spacing: 0;
+  padding: 10px;
+  border-top: 2px solid #647979;
+  border-bottom: 2px solid #647979;
+}
+.member-info-tbl>tbody>tr>td:first-child{
+  width: 30%;
+}
+.member-info-tbl>tbody>tr>td{
+  padding: 20px 10px;
+}
+#member-phone {
+  padding: 0;
+}
+#member-phone > div {
+  display: flex;
+  justify-content: space-between;
+}
+#member-phone > div > input {
+  width: 60%;
+}
+#member-phone > div > button{
+  width: 35%;
+}
+.delete-btn-box{
+  margin: 30px;
+}
+
+.pw-input-wrap{
+  padding: 10px 0px; 
+}
+.pw-input-wrap>div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.pw-input-wrap > div > label {
+  width: 20%;  
+  font-size: 18px;
+  font-family: ns-b;  
+}
+.pw-input-wrap>div>input {
+  width: 50%;
+}
+.pw-input-wrap > div > button {
+  margin-left: 15px;
+  width: 20%;
+}
+.pw-input-wrap>div>input#memberPw{
+  width: 75%;
+}

@@ -11,10 +11,8 @@ const MemberMain = (props) => {
     const backServer = process.env.REACT_APP_BACK_SERVER;
     const isLogin = props.isLogin;
     const navigate = useNavigate();
-    if (!isLogin ){
-        Swal.fire("로그인 후 이용하세요.").then(()=>{
-            navigate("/")
-        });
+    if (!isLogin ){        
+            navigate("/")       
     }
     const [member,setMember] = useState({});
     useEffect(() => {
@@ -22,6 +20,7 @@ const MemberMain = (props) => {
         .get(backServer+"/member")
         .then((res)=>{
             console.log(res.data);
+            setMember(res.data.data);
         })
         .catch((res)=>{
             console.log(res);
@@ -41,7 +40,7 @@ const MemberMain = (props) => {
                 <SideMenu menus={menus} setMenus={setMenus}/>
                 <div className="mypage-current-content">
                     <Routes>
-                        <Route path="/info" element={<MemberInfo/>} />
+                        <Route path="/info" element={<MemberInfo member={member} />} />
                         <Route path="/pw" element={<MemberPW />} />
                     </Routes>
                 </div>

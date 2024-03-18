@@ -1,0 +1,24 @@
+/*
+메인색상
+#C4D1C5 연한초록
+#647979 진한초록
+#807097 진한보라
+#C99DCA 연보라
+#F6C7BA 복숭아
+#F8E0DC 연한살구
+*/
+
+.board-title{
+    font-size: 24px;
+    color: #F6C7BA;
+    font-family: ns-b;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 2px solid #F8E0DC;
+}
+.board-write-btn {
+    padding: 20px 0px;
+}
+.board-write-btn > button {
+    width: 100px;
+}

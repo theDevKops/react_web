@@ -25,7 +25,7 @@ const SideMenu = (props) => {
                             }}
                             >
                             {menu.text}
-                            <span class="material-icons">chevron_right</span>
+                            <span className="material-icons">chevron_right</span>
                         </Link>
                     </li>
                     );
