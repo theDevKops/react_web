@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button2 } from "../../component/FormFrm";
+import { Button3 } from "../../component/FormFrm";
 import "./board.css";
 import axios from "axios";
 import Pagination from "../../component/Pagination";
@@ -32,7 +32,7 @@ const BoardList = (props) => {
         <>
             {isLogin ? (
                 <div className="board-write-btn">
-                    <Button2 text="작성" clickEvent={writerBtn}/>
+                    <Button3 text="글 등록하기" clickEvent={writerBtn}/>
                 </div>
             ) : (
             ""
@@ -51,11 +51,19 @@ const BoardList = (props) => {
 
 const BoardItem = (props) =>{
     const board = props.board;
-    
+    const backServer = process.env.REACT_APP_BACK_SERVER;
+    const navigate = useNavigate();
+    const boardView = () => {
+        navigate("/board/view/" + board.boardNo);
+    }
     return(
-        <div className="board-item">
+        <div className="board-item" onClick={boardView}>
             <div className="board-item-img">
-                <img src="/image/default.png"/>
+                {board.boardImg === null ? (                 
+                <img src="/image/default.png"/> 
+                ):( 
+                <img src={backServer+"/board/thumbnail/" + board.boardImg} />
+                )}                
             </div>
             <div className="board-item-info">
                 <div className="board-item-title">{board.boardTitle}</div>
@@ -63,7 +71,7 @@ const BoardItem = (props) =>{
                 <div className="board-item-date">{board.boardDate}</div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default BoardList;

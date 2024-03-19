@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class BoardFile {
 	private int boardFileNo;
 	private int boardNo;
-	private String flieName;
-	private String filePath;
+	private String filename;
+	private String filepath;
 }

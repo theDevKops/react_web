@@ -1,9 +1,12 @@
-import { Input } from "../../component/FormFrm";
+import { Button3, Input } from "../../component/FormFrm";
+import TextEditor from "../../component/TextEditor";
+import "./board.css";
+
 
 const BoardFrm = (props) => {
     const boardTitle = props.boardTitle;
     const setBoardTitle = props.setBoardTitle;
-    const boardContent = props.setBoardContent;
+    const boardContent = props.boardContent;
     const setBoardContent = props.setBoardContent;
     const thumbnail = props.thumbnail;
     const setThumbNail = props.setThumbNail;
@@ -16,6 +19,7 @@ const BoardFrm = (props) => {
     const setFileList = props.setFileList;
     
     const buttonFunction = props.buttonFunction;
+    const backServer = process.env.REACT_APP_BACK_SERVER;  
 
     //썸네일 파일 추가시 동작할 함수
     const changeThumbnail = (e) => {
@@ -33,10 +37,21 @@ const BoardFrm = (props) => {
             setBoardImg(null);
         }
     };
+    //첨부파일 추가 동작할 함수
+    const changeFile = (e) => {
+        const files = e.currentTarget.files;
+        console.log(files);
+        setBoardFile(files);
+        const arr = new Array();
+        for(let i = 0; i < files.length; i++){
+            arr.push(files[i].name);
+        }
+        setFileList(arr);
+    };
     return(
         <div className="board-frm-wrap">
             <div className="board-frm-top">
-                <div className="board-thumnail">
+                <div className="board-thumbnail">
                     {boardImg===null ? ( <img src="/image/default.png"/>
                     ) : (
                     <img src={boardImg}/>
@@ -61,11 +76,38 @@ const BoardFrm = (props) => {
                                     <input type="file" id="thumbnail" accept="image/*" onChange={changeThumbnail} />
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <label htmlFor="boardFile">첨부파일</label>
+                                </td>
+                                <td>
+                                    <input type="file" onChange={changeFile}multiple />
+                                </td>
+                            </tr>
+                            <tr className="file-list">
+                                <td>첨부파일목록</td>
+                                <td>
+                                    <div className="file-zone">
+                                        {fileList.map((item,index)=>{
+                                            return(
+                                                <p key={"newFile" + index}>
+                                                    <span className="filename">{item}</span>
+                                                </p>
+                                            );
+                                        })}
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div className="board-frm-bottom"></div>
+            <div className="board-frm-bottom">
+                <TextEditor data={boardContent} setData={setBoardContent} url={backServer + "/board/editor"} />
+            </div>
+            <div className="board-frm-btn-box">
+                <Button3 text="작성하기" clickEvent={buttonFunction} />
+            </div>
         </div>
     );
 };
