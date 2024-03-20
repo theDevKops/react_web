@@ -67,6 +67,7 @@ const BoardWrite = () => {
             fileList={fileList}
             setFileList={setFileList}
             buttonFunction={write}
+            type="write"
         />
     </div>
     );

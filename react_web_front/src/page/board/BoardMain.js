@@ -3,7 +3,7 @@ import "./board.css";
 import BoardList from "./BoardList";
 import BoardWrite from "./BoardWrite";
 import BoardView from "./BoardView";
-import BoardMoidfy from "./boardModify";
+import BoardMoidfy from "./BoardModify";
 
 
 const BoardMain = (props) => {

@@ -93,8 +93,8 @@ const BoardView = (props) => {
                 <div className="board-view-btn-zone">
                     {member && member.memberId === board.boardWriter ?(
                     <>
-                    <Button1 text="수정" onClick={modify} />
-                    <Button2 text="삭제" onClick={deleteBoard}/>
+                    <Button1 text="수정하기" clickEvent={modify} />
+                    <Button2 text="삭제하기" clickEvent={deleteBoard}/>
                     </>
                     ) : (
                     ""    
