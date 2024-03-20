@@ -48,6 +48,9 @@ const BoardMoidfy = () => {
         if(thumbnail !== null){
             form.append("thumbnail", thumbnail);
         }
+
+
+
         for(let i = 0; i < boardFile.length; i ++){
             form.append("boardFile",boardFile[i]);
         }
@@ -55,7 +58,8 @@ const BoardMoidfy = () => {
             form.append("delFileNo",delFileNo[i]);
         }
         axios
-        .patch(backServer + "/board",form, {
+        .patch
+        (backServer + "/board",form, {
             headers: {
                 contentType: "multipart/form-data",
                 processData:false,
@@ -90,7 +94,7 @@ const BoardMoidfy = () => {
                 type="modify"
                 delFileNo={delFileNo}
                 setDelFileNo={setDelFileNo}
-                thumnailCheck={thumnailCheck}
+                thumnailCheck={thumbnailCheck}
                 setThumbnailCheck={setThumbnailCheck}
             />
         </div>
